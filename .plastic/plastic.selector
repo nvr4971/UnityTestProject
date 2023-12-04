@@ -1,0 +1,4 @@
+repository "UnityTestProject@unity_Wpa5zrgwHRDiLQ@cloud"
+  path "/"
+    br "/main"
+    co "/main"
