@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DriveMode
+{
+    Automatic,
+    Manual
+}
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -12,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform checkpointsListObject;
     [SerializeField] private List<Transform> checkpoints;
+
+    [SerializeField] private DriveMode driveMode;
 
     private void Start()
     {
@@ -25,6 +33,29 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
+    {
+        if (driveMode == DriveMode.Automatic)
+        {
+            AutomaticDrive();
+        }
+        else
+        {
+            ManualDrive();
+        }
+        
+    }
+
+    private void ManualDrive()
+    {
+        float xAxis = Input.GetAxis("Horizontal");
+        float zAxis = Input.GetAxis("Vertical");
+
+        Vector3 movement = new(xAxis, 0, zAxis);
+
+        transform.Translate(speed * Time.deltaTime * movement);
+    }
+
+    private void AutomaticDrive()
     {
         if (Vector3.SqrMagnitude(currentDestination.position - transform.position) < destinationOffset)
         {
