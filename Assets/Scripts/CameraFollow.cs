@@ -9,9 +9,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.SetPositionAndRotation(
-            player.transform.position + offset, 
-            Quaternion.Euler(transform.eulerAngles.x, player.transform.eulerAngles.y, transform.eulerAngles.z)
-        );
+        //transform.SetPositionAndRotation(
+        //    player.transform.position + offset, 
+        //    Quaternion.Euler(transform.eulerAngles.x, player.transform.eulerAngles.y, transform.eulerAngles.z)
+        //);
+
+        transform.position = player.transform.position + offset;
     }
 }

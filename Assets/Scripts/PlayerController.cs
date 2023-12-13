@@ -11,6 +11,7 @@ public enum DriveMode
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float acceleration;
     [SerializeField] private float destinationOffset;
 
     [SerializeField] private Transform currentDestination;
@@ -21,8 +22,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private DriveMode driveMode;
 
+    private Rigidbody _rb;
+    private Vector3 _movementDirection;
+
     private void Start()
     {
+        _rb = GetComponent<Rigidbody>();
+        _movementDirection = Vector3.zero;
+
+        driveMode = DriveMode.Manual;
+
         for (int i = 0; i < checkpointsListObject.childCount; i++)
         {
             checkpoints.Add(checkpointsListObject.GetChild(i));
@@ -45,14 +54,20 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        _rb.AddForce(acceleration * speed * _movementDirection);
+    }
+
     private void ManualDrive()
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float zAxis = Input.GetAxis("Vertical");
+        _movementDirection = new Vector3(
+            Input.GetAxis("Horizontal"), 
+            0, 
+            Input.GetAxis("Vertical")
+        ).normalized;
 
-        Vector3 movement = new(xAxis, 0, zAxis);
-
-        transform.Translate(speed * Time.deltaTime * movement);
+        transform.rotation = Quaternion.LookRotation(_movementDirection);
     }
 
     private void AutomaticDrive()
