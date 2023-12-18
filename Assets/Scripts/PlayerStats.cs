@@ -21,6 +21,20 @@ public class PlayerStats : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        UIManager.Instance.UpdatePositionUI(1);
+        UIManager.Instance.UpdateSpeedUI(0f);
+
+        UIManager.Instance.UpdateDamageUI(damage);
+
+        UIManager.Instance.UpdateCurrentFuelUI(fuel);
+        UIManager.Instance.UpdateMaxFuelUI(fuelCap);
+
+        UIManager.Instance.UpdateCurrentLapUI(lap);
+        UIManager.Instance.UpdateMaxLapUI(lapsToFinish);
+    }
+
     public void TakeDamage(int amount)
     {
         damage += amount;
@@ -30,6 +44,8 @@ public class PlayerStats : MonoBehaviour
             // Reset scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        UIManager.Instance.UpdateDamageUI(damage);
     }
 
     public void RepairDamage(int amount)
@@ -40,11 +56,15 @@ public class PlayerStats : MonoBehaviour
         {
             damage = 0;
         }
+
+        UIManager.Instance.UpdateDamageUI(damage);
     }
 
     public void FullRepairDamage()
     {
         damage = 0;
+
+        UIManager.Instance.UpdateDamageUI(damage);
     }
 
     public void AddFuel(int amount)
@@ -55,11 +75,15 @@ public class PlayerStats : MonoBehaviour
         {
             fuel = fuelCap;
         }
+
+        UIManager.Instance.UpdateCurrentFuelUI(damage);
     }
 
     public void AddFuelCap(int amount)
     {
         fuelCap += amount;
+
+        UIManager.Instance.UpdateMaxFuelUI(damage);
     }
 
     public void AddLap()
@@ -70,5 +94,7 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Level Complete!");
         }
+
+        UIManager.Instance.UpdateCurrentLapUI(lap);
     }
 }

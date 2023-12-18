@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 156969316}
   - component: {fileID: 156969318}
   - component: {fileID: 156969317}
+  - component: {fileID: 156969319}
   m_Layer: 5
   m_Name: GamePanel
   m_TagString: Untagged
@@ -771,6 +772,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156969315}
   m_CullTransparentMesh: 1
+--- !u!114 &156969319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156969315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44457c6d1707554bbb450e1a8ebaa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lapCurrentUIText: {fileID: 260919713}
+  lapMaxUIText: {fileID: 1274588001}
+  positionUIText: {fileID: 498042927}
+  speedUIText: {fileID: 955174289}
+  damageUIText: {fileID: 459433936}
+  fuelCurrentUIText: {fileID: 661440541}
+  fuelMaxUIText: {fileID: 1548010978}
 --- !u!1001 &165416521
 PrefabInstance:
   m_ObjectHideFlags: 0
