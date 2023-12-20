@@ -76,14 +76,14 @@ public class PlayerStats : MonoBehaviour
             fuel = fuelCap;
         }
 
-        UIManager.Instance.UpdateCurrentFuelUI(damage);
+        UIManager.Instance.UpdateCurrentFuelUI(fuel);
     }
 
     public void AddFuelCap(int amount)
     {
         fuelCap += amount;
 
-        UIManager.Instance.UpdateMaxFuelUI(damage);
+        UIManager.Instance.UpdateMaxFuelUI(fuelCap);
     }
 
     public void AddLap()

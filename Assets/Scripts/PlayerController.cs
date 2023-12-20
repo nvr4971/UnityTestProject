@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.AddForce(acceleration * speed * _movementDirection);
+
+        UIManager.Instance.UpdateSpeedUI(_rb.velocity.magnitude);
     }
 
     private void ManualDrive()
