@@ -17,11 +17,37 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text currentFuelUI;
     [SerializeField] private TMP_Text maxFuelUI;
 
+    [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject pausePanel;
+
+    private bool isPause = false;
+
     public static UIManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPause)
+            {
+                gamePanel.SetActive(true);
+                pausePanel.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                gamePanel.SetActive(false);
+                pausePanel.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
+            isPause = !isPause;
+        }
     }
 
     public void UpdateCurrentLapUI(int currentLap)

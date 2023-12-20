@@ -6609,6 +6609,7 @@ GameObject:
   - component: {fileID: 1106951102}
   - component: {fileID: 1106951101}
   - component: {fileID: 1106951100}
+  - component: {fileID: 1106951104}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6700,6 +6701,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1106951104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106951099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44457c6d1707554bbb450e1a8ebaa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLapUI: {fileID: 1051977082}
+  maxLapUI: {fileID: 1419919683}
+  positionUI: {fileID: 888272105}
+  speedUI: {fileID: 2075723318}
+  damageUI: {fileID: 1778120695}
+  currentFuelUI: {fileID: 1678688109}
+  maxFuelUI: {fileID: 683475642}
 --- !u!1001 &1112405463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8335,7 +8355,6 @@ GameObject:
   - component: {fileID: 1641213512}
   - component: {fileID: 1641213515}
   - component: {fileID: 1641213514}
-  - component: {fileID: 1641213513}
   m_Layer: 5
   m_Name: GamePanel
   m_TagString: Untagged
@@ -8367,25 +8386,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1641213513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641213511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44457c6d1707554bbb450e1a8ebaa59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLapUI: {fileID: 1051977082}
-  maxLapUI: {fileID: 1419919683}
-  positionUI: {fileID: 888272105}
-  speedUI: {fileID: 2075723318}
-  damageUI: {fileID: 1778120695}
-  currentFuelUI: {fileID: 1678688109}
-  maxFuelUI: {fileID: 683475642}
 --- !u!114 &1641213514
 MonoBehaviour:
   m_ObjectHideFlags: 0
